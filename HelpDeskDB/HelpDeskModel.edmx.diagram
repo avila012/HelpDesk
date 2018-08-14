@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4ef673541432467eab0a884db7a14e4f" Name="Diagram1" >
+        <EntityTypeShape EntityType="HelpDeskDBModel.Departamentos" Width="1.5" PointX="2" PointY="1" />
+        <EntityTypeShape EntityType="HelpDeskDBModel.Estados" Width="1.5" PointX="6.5" PointY="1" />
+        <EntityTypeShape EntityType="HelpDeskDBModel.Persona" Width="1.5" PointX="4.5" PointY="4" />
+        <EntityTypeShape EntityType="HelpDeskDBModel.Usuarios" Width="1.5" PointX="6.5" PointY="4" />
+        <AssociationConnector Association="HelpDeskDBModel.FK_Persona_Departamentos" />
+        <AssociationConnector Association="HelpDeskDBModel.FK_Persona_Estados" />
+        <AssociationConnector Association="HelpDeskDBModel.FK_Usuarios_Persona" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,11 @@
+C:\C#\HelpDesk\HelpDeskDB\bin\Debug\HelpDeskDB.dll.config
+C:\C#\HelpDesk\HelpDeskDB\bin\Debug\HelpDeskDB.dll
+C:\C#\HelpDesk\HelpDeskDB\bin\Debug\HelpDeskDB.pdb
+C:\C#\HelpDesk\HelpDeskDB\bin\Debug\EntityFramework.dll
+C:\C#\HelpDesk\HelpDeskDB\bin\Debug\EntityFramework.SqlServer.dll
+C:\C#\HelpDesk\HelpDeskDB\bin\Debug\EntityFramework.xml
+C:\C#\HelpDesk\HelpDeskDB\bin\Debug\EntityFramework.SqlServer.xml
+C:\C#\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.Properties.Resources.resources
+C:\C#\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.csproj.GenerateResource.Cache
+C:\C#\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.dll
+C:\C#\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.pdb
