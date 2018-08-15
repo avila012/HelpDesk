@@ -9,3 +9,14 @@ C:\C#\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.Properties.Resources.resources
 C:\C#\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.csproj.GenerateResource.Cache
 C:\C#\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.dll
 C:\C#\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.pdb
+C:\C#\ClnHelpDesk\HelpDeskDB\bin\Debug\HelpDeskDB.dll.config
+C:\C#\ClnHelpDesk\HelpDeskDB\bin\Debug\HelpDeskDB.dll
+C:\C#\ClnHelpDesk\HelpDeskDB\bin\Debug\HelpDeskDB.pdb
+C:\C#\ClnHelpDesk\HelpDeskDB\bin\Debug\EntityFramework.dll
+C:\C#\ClnHelpDesk\HelpDeskDB\bin\Debug\EntityFramework.SqlServer.dll
+C:\C#\ClnHelpDesk\HelpDeskDB\bin\Debug\EntityFramework.xml
+C:\C#\ClnHelpDesk\HelpDeskDB\bin\Debug\EntityFramework.SqlServer.xml
+C:\C#\ClnHelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.Properties.Resources.resources
+C:\C#\ClnHelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.csproj.GenerateResource.Cache
+C:\C#\ClnHelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.dll
+C:\C#\ClnHelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.pdb

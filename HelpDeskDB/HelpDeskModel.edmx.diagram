@@ -8,9 +8,10 @@
         <EntityTypeShape EntityType="HelpDeskDBModel.Departamentos" Width="1.5" PointX="2" PointY="1" />
         <EntityTypeShape EntityType="HelpDeskDBModel.Estados" Width="1.5" PointX="6.5" PointY="1" />
         <EntityTypeShape EntityType="HelpDeskDBModel.Persona" Width="1.5" PointX="4.5" PointY="4" />
-        <EntityTypeShape EntityType="HelpDeskDBModel.Usuarios" Width="1.5" PointX="6.5" PointY="4" />
         <AssociationConnector Association="HelpDeskDBModel.FK_Persona_Departamentos" />
         <AssociationConnector Association="HelpDeskDBModel.FK_Persona_Estados" />
+        <EntityTypeShape EntityType="HelpDeskDBModel.sysdiagrams" Width="1.5" PointX="11.25" PointY="1.25" />
+        <EntityTypeShape EntityType="HelpDeskDBModel.Usuarios" Width="1.5" PointX="9.125" PointY="4.5" />
         <AssociationConnector Association="HelpDeskDBModel.FK_Usuarios_Persona" />
       </Diagram>
     </edmx:Diagrams>

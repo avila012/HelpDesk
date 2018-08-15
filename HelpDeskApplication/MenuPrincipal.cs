@@ -63,6 +63,11 @@ namespace HelpDeskApplication
 
             FMenuSecundario.Show();
 
-        }       
+        }
+
+        private void frmMenuPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -4,7 +4,24 @@
     <EntitySet Name="Departamentos" EntityType="HelpDeskDBModel.Departamentos" />
     <EntitySet Name="Estados" EntityType="HelpDeskDBModel.Estados" />
     <EntitySet Name="Persona" EntityType="HelpDeskDBModel.Persona" />
+    <AssociationSet Name="FK_Persona_Departamentos" Association="HelpDeskDBModel.FK_Persona_Departamentos">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Persona" EntitySet="Persona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Persona_Estados" Association="HelpDeskDBModel.FK_Persona_Estados">
+      <End Role="Estados" EntitySet="Estados" />
+      <End Role="Persona" EntitySet="Persona" />
+    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="HelpDeskDBModel.sysdiagrams" />
+    <FunctionImport Name="prValidaUsuario">
+      <Parameter Name="usuario" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
     <EntitySet Name="Usuarios" EntityType="HelpDeskDBModel.Usuarios" />
+    <AssociationSet Name="FK_Usuarios_Persona" Association="HelpDeskDBModel.FK_Usuarios_Persona">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Departamentos">
     <Key>
@@ -12,6 +29,7 @@
     </Key>
     <Property Name="codigo" Type="Int32" Nullable="false" />
     <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Persona" Relationship="HelpDeskDBModel.FK_Persona_Departamentos" FromRole="Departamentos" ToRole="Persona" />
   </EntityType>
   <EntityType Name="Estados">
     <Key>
@@ -19,6 +37,7 @@
     </Key>
     <Property Name="codigo" Type="Int32" Nullable="false" />
     <Property Name="Estado" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Persona" Relationship="HelpDeskDBModel.FK_Persona_Estados" FromRole="Estados" ToRole="Persona" />
   </EntityType>
   <EntityType Name="Persona">
     <Key>
@@ -29,6 +48,43 @@
     <Property Name="Apellido" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Departamento" Type="Int32" Nullable="false" />
     <Property Name="Estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Departamentos" Relationship="HelpDeskDBModel.FK_Persona_Departamentos" FromRole="Persona" ToRole="Departamentos" />
+    <NavigationProperty Name="Estados" Relationship="HelpDeskDBModel.FK_Persona_Estados" FromRole="Persona" ToRole="Estados" />
+    <NavigationProperty Name="Usuarios" Relationship="HelpDeskDBModel.FK_Usuarios_Persona" FromRole="Persona" ToRole="Usuarios" />
+  </EntityType>
+  <Association Name="FK_Persona_Departamentos">
+    <End Type="HelpDeskDBModel.Departamentos" Role="Departamentos" Multiplicity="1" />
+    <End Type="HelpDeskDBModel.Persona" Role="Persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="Persona">
+        <PropertyRef Name="Departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Persona_Estados">
+    <End Type="HelpDeskDBModel.Estados" Role="Estados" Multiplicity="1" />
+    <End Type="HelpDeskDBModel.Persona" Role="Persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estados">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="Persona">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Usuarios">
     <Key>
@@ -37,7 +93,20 @@
     <Property Name="Codigo" Type="Int32" Nullable="false" />
     <Property Name="CodPersona" Type="Int32" Nullable="false" />
     <Property Name="Usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Pass" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="estado" Type="Int32" />
+    <NavigationProperty Name="Persona" Relationship="HelpDeskDBModel.FK_Usuarios_Persona" FromRole="Usuarios" ToRole="Persona" />
   </EntityType>
+  <Association Name="FK_Usuarios_Persona">
+    <End Type="HelpDeskDBModel.Persona" Role="Persona" Multiplicity="1" />
+    <End Type="HelpDeskDBModel.Usuarios" Role="Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="codigo" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="CodPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

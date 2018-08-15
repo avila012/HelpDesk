@@ -12,6 +12,8 @@ namespace HelpDeskDB
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class HelpDeskDBEntities : DbContext
     {
@@ -28,6 +30,20 @@ namespace HelpDeskDB
         public virtual DbSet<Departamentos> Departamentos { get; set; }
         public virtual DbSet<Estados> Estados { get; set; }
         public virtual DbSet<Persona> Persona { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
+    
+        public virtual int prValidaUsuario(string usuario, string password)
+        {
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("usuario", usuario) :
+                new ObjectParameter("usuario", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("prValidaUsuario", usuarioParameter, passwordParameter);
+        }
     }
 }

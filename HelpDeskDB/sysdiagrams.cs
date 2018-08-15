@@ -12,14 +12,12 @@ namespace HelpDeskDB
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuarios
+    public partial class sysdiagrams
     {
-        public int Codigo { get; set; }
-        public int CodPersona { get; set; }
-        public string Usuario { get; set; }
-        public string Pass { get; set; }
-        public Nullable<int> estado { get; set; }
-    
-        public virtual Persona Persona { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
