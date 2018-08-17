@@ -146,12 +146,23 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\if_free-10_463016.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HelpDeskDB\HelpDeskDB.csproj">
       <Project>{20e632a0-e6f6-475f-a7cb-487005bdd267}</Project>
       <Name>HelpDeskDB</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_edit_173002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_floppy_285657.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_free-09_463017.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

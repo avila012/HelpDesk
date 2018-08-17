@@ -1,6 +1,6 @@
 ﻿namespace HelpDeskApplication
 {
-    partial class ReporteSolicitudes
+    partial class frmReporteSolicitudes
     {
         /// <summary>
         /// Required designer variable.
@@ -73,7 +73,7 @@
             this.button1.Text = "Imprimir";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // ReporteSolicitudes
+            // frmReporteSolicitudes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -86,8 +86,9 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "ReporteSolicitudes";
+            this.Name = "frmReporteSolicitudes";
             this.Text = "ReporteSolicitudes";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HelpDeskApplication
 {
-    public partial class ReporteSolicitudes : Form
+    public partial class frmReporteSolicitudes : Form
     {
-        public ReporteSolicitudes()
+        public frmReporteSolicitudes()
         {
             InitializeComponent();
         }

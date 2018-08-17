@@ -20,6 +20,23 @@ namespace HelpDeskApplication
             InitializeComponent();
         }
 
+       public enum Tabs
+        {
+            Usuario,
+            Departamento,
+            Estado
+        }
+
+        public enum Accion
+        {
+            Insertar,
+            Eliminar,
+            Actualizar
+        }
+
+        public Tabs TabActual { get; set; }
+        public Accion SqlAccion { get; set; }
+
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
@@ -148,6 +165,110 @@ namespace HelpDeskApplication
             {
                 int lol = Convert.ToInt16(cbDepartamento.SelectedValue);
             }
+        }
+        
+        private void sbtnNuevo_Click(object sender, EventArgs e)
+        {
+            sbtnEditar.Enabled = false;
+            sbtnNuevo.Enabled = false;
+            sbtnGuardar.Enabled = true;
+            sbtnCancelar.Enabled = true;
+            SqlAccion = Accion.Insertar;
+        }
+
+        private void tabControl1_TabIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private async void sbtnGuardar_Click(object sender, EventArgs e)
+        {
+            switch (TabActual)
+            {
+                case Tabs.Usuario:
+
+                    switch (SqlAccion)
+                    {
+                        case Accion.Insertar:
+
+                            Usuarios user = new Usuarios()
+                            {
+                                Usuario = txtUsuario.Text,
+                                Pass = txtPassword.Text,
+                                estado = Convert.ToInt32(cbEstado.SelectedValue)
+                            };
+
+                            Persona per = new Persona()
+                            {
+                                Nombre = txtNombre.Text,
+                                Apellido = txtApellido.Text,
+                                Departamento = Convert.ToInt32(cbDepartamento.SelectedValue),
+                                Estado = Convert.ToInt32(cbEstado.SelectedValue),
+                            };
+
+                            HelpDeskDBEntities hd = new HelpDeskDBEntities();
+                            hd.Usuarios.Add(user);
+                            hd.Persona.Add(per);
+
+                            await hd.SaveChangesAsync();
+
+                            break;
+
+                        case Accion.Eliminar:
+                            break;
+
+                        case Accion.Actualizar:
+                            break;
+                    }
+                    break;
+
+                case Tabs.Departamento:
+
+                    break;
+
+                case Tabs.Estado:
+
+                    break;
+            }
+
+            sbtnEditar.Enabled = true;
+            sbtnNuevo.Enabled = true;
+            sbtnGuardar.Enabled = false;
+            sbtnCancelar.Enabled = false;
+
+        }
+
+        private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (e.TabPage.Text == "Usuarios")
+            {
+                TabActual = Tabs.Usuario;
+            }
+            if (e.TabPage.Text == "Estados")
+            {
+                TabActual = Tabs.Estado;
+            }
+            if (e.TabPage.Text == "Departamentos")
+            {
+                TabActual = Tabs.Departamento;
+            }
+        }
+
+        private void sbtnCancelar_Click(object sender, EventArgs e)
+        {
+            sbtnEditar.Enabled = true;
+            sbtnNuevo.Enabled = true;
+            sbtnGuardar.Enabled = false;
+            sbtnCancelar.Enabled = false;
+        }
+
+        private void sbtnEditar_Click(object sender, EventArgs e)
+        {
+            sbtnEditar.Enabled = false;
+            sbtnNuevo.Enabled = false;
+            sbtnGuardar.Enabled = true;
+            sbtnCancelar.Enabled = true;
+            SqlAccion = Accion.Actualizar;
         }
     }
 }

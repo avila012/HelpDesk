@@ -63,6 +63,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -100,6 +101,7 @@
       <DependentUpon>HelpDeskModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlFunctions.cs" />
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>HelpDeskModel.tt</DependentUpon>
     </Compile>

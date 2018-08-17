@@ -48,4 +48,4 @@ C:\C#\ClnHelpDesk\HelpDeskApplication\obj\x86\Debug\HelpDeskApplication.csproj.G
 C:\C#\ClnHelpDesk\HelpDeskApplication\obj\x86\Debug\HelpDeskApplication.exe
 C:\C#\ClnHelpDesk\HelpDeskApplication\obj\x86\Debug\HelpDeskApplication.pdb
 C:\C#\ClnHelpDesk\HelpDeskApplication\obj\x86\Debug\HelpDeskApplication.frmModificarPendientes.resources
-C:\C#\ClnHelpDesk\HelpDeskApplication\obj\x86\Debug\HelpDeskApplication.ReporteSolicitudes.resources
+C:\C#\ClnHelpDesk\HelpDeskApplication\obj\x86\Debug\HelpDeskApplication.frmReporteSolicitudes.resources
