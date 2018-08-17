@@ -27,6 +27,7 @@ namespace HelpDeskApplication
                 if (await Login(txtUsuario.Text,txtPass.Text))
                 {
                     frmMenuPrincipal MenuPrincipal = new frmMenuPrincipal();
+                    MenuPrincipal.Usuario = txtUsuario.Text;
                     MenuPrincipal.Show();
                     this.Hide();
                 }

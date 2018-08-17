@@ -83,8 +83,20 @@
     <Compile Include="MenuSecundario.Designer.cs">
       <DependentUpon>MenuSecundario.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModificarPendientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarPendientes.Designer.cs">
+      <DependentUpon>ModificarPendientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteSolicitudes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReporteSolicitudes.Designer.cs">
+      <DependentUpon>ReporteSolicitudes.cs</DependentUpon>
+    </Compile>
     <Compile Include="SolicitudesPendientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +115,9 @@
     <EmbeddedResource Include="MenuSecundario.resx">
       <DependentUpon>MenuSecundario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModificarPendientes.resx">
+      <DependentUpon>ModificarPendientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -113,6 +128,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReporteSolicitudes.resx">
+      <DependentUpon>ReporteSolicitudes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SolicitudesPendientes.resx">
       <DependentUpon>SolicitudesPendientes.cs</DependentUpon>
     </EmbeddedResource>
