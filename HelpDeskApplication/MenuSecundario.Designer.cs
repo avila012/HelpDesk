@@ -38,7 +38,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevoGuardar = new System.Windows.Forms.Button();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -59,26 +58,27 @@
             this.label9 = new System.Windows.Forms.Label();
             this.dgvDeparmento = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtEstados = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dgvEstados = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.sbtnNuevo = new System.Windows.Forms.ToolStripButton();
             this.sbtnEditar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.sbtnEliminar = new System.Windows.Forms.ToolStripButton();
             this.sbtnGuardar = new System.Windows.Forms.ToolStripButton();
             this.sbtnCancelar = new System.Windows.Forms.ToolStripButton();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeparmento)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstados)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -87,7 +87,6 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(0, 38);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -179,7 +178,6 @@
             this.dgvUsuarios.AllowUserToAddRows = false;
             this.dgvUsuarios.AllowUserToDeleteRows = false;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuarios.Enabled = false;
             this.dgvUsuarios.Location = new System.Drawing.Point(12, 310);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.ReadOnly = true;
@@ -189,16 +187,6 @@
             this.dgvUsuarios.Size = new System.Drawing.Size(690, 150);
             this.dgvUsuarios.TabIndex = 17;
             this.dgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(550, 116);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(152, 143);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
             // 
             // groupBox1
             // 
@@ -230,6 +218,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(218, 26);
             this.txtPassword.TabIndex = 16;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // label6
             // 
@@ -370,13 +359,15 @@
             this.dgvDeparmento.Name = "dgvDeparmento";
             this.dgvDeparmento.ReadOnly = true;
             this.dgvDeparmento.RowHeadersVisible = false;
+            this.dgvDeparmento.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvDeparmento.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvDeparmento.Size = new System.Drawing.Size(422, 150);
             this.dgvDeparmento.TabIndex = 0;
             // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tabPage3.Controls.Add(this.textBox2);
+            this.tabPage3.Controls.Add(this.txtEstados);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.dgvEstados);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
@@ -386,12 +377,12 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Estados";
             // 
-            // textBox2
+            // txtEstados
             // 
-            this.textBox2.Location = new System.Drawing.Point(8, 31);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(694, 26);
-            this.textBox2.TabIndex = 7;
+            this.txtEstados.Location = new System.Drawing.Point(8, 31);
+            this.txtEstados.Name = "txtEstados";
+            this.txtEstados.Size = new System.Drawing.Size(694, 26);
+            this.txtEstados.TabIndex = 7;
             // 
             // label10
             // 
@@ -420,6 +411,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sbtnNuevo,
             this.sbtnEditar,
+            this.sbtnEliminar,
             this.toolStripSeparator1,
             this.sbtnGuardar,
             this.sbtnCancelar});
@@ -428,6 +420,11 @@
             this.toolStrip1.Size = new System.Drawing.Size(718, 31);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // sbtnNuevo
             // 
@@ -449,10 +446,15 @@
             this.sbtnEditar.Text = "toolStripButton3";
             this.sbtnEditar.Click += new System.EventHandler(this.sbtnEditar_Click);
             // 
-            // toolStripSeparator1
+            // sbtnEliminar
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.sbtnEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.sbtnEliminar.Image = global::HelpDeskApplication.Properties.Resources.if_free_27_616650;
+            this.sbtnEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.sbtnEliminar.Name = "sbtnEliminar";
+            this.sbtnEliminar.Size = new System.Drawing.Size(28, 28);
+            this.sbtnEliminar.Text = "toolStripButton1";
+            this.sbtnEliminar.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // sbtnGuardar
             // 
@@ -476,15 +478,15 @@
             this.sbtnCancelar.Text = "toolStripButton1";
             this.sbtnCancelar.Click += new System.EventHandler(this.sbtnCancelar_Click);
             // 
-            // tabPage4
+            // pictureBox1
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(710, 482);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Perfiles";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(550, 116);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(152, 143);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
             // 
             // frmMenuSecundario
             // 
@@ -506,7 +508,6 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -517,6 +518,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstados)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -553,7 +555,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dgvDeparmento;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtEstados;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dgvEstados;
         private System.Windows.Forms.ToolStrip toolStrip1;
@@ -562,6 +564,6 @@
         private System.Windows.Forms.ToolStripButton sbtnEditar;
         private System.Windows.Forms.ToolStripButton sbtnCancelar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.ToolStripButton sbtnEliminar;
     }
 }

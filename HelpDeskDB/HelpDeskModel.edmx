@@ -4,19 +4,19 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="HelpDeskDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HelpDeskDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Departamentos">
           <Key>
             <PropertyRef Name="codigo" />
           </Key>
-          <Property Name="codigo" Type="int" Nullable="false" />
+          <Property Name="codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Estados">
           <Key>
             <PropertyRef Name="codigo" />
           </Key>
-          <Property Name="codigo" Type="int" Nullable="false" />
+          <Property Name="codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Estado" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Perfiles">
@@ -58,66 +58,6 @@
           <Property Name="IdPerfil" Type="int" />
           <Property Name="estado" Type="int" />
         </EntityType>
-        <Association Name="FK_Perfiles_Estados">
-          <End Role="Estados" Type="Self.Estados" Multiplicity="1" />
-          <End Role="Perfiles" Type="Self.Perfiles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Estados">
-              <PropertyRef Name="codigo" />
-            </Principal>
-            <Dependent Role="Perfiles">
-              <PropertyRef Name="Estado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Persona_Departamentos">
-          <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
-          <End Role="Persona" Type="Self.Persona" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Departamentos">
-              <PropertyRef Name="codigo" />
-            </Principal>
-            <Dependent Role="Persona">
-              <PropertyRef Name="Departamento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Persona_Estados">
-          <End Role="Estados" Type="Self.Estados" Multiplicity="1" />
-          <End Role="Persona" Type="Self.Persona" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Estados">
-              <PropertyRef Name="codigo" />
-            </Principal>
-            <Dependent Role="Persona">
-              <PropertyRef Name="Estado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Usuarios_Perfiles">
-          <End Role="Perfiles" Type="Self.Perfiles" Multiplicity="0..1" />
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Perfiles">
-              <PropertyRef Name="Codigo" />
-            </Principal>
-            <Dependent Role="Usuarios">
-              <PropertyRef Name="IdPerfil" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Usuarios_Persona">
-          <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="codigo" />
-            </Principal>
-            <Dependent Role="Usuarios">
-              <PropertyRef Name="CodPersona" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="HelpDeskDBModelStoreContainer">
           <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Estados" EntityType="Self.Estados" Schema="dbo" store:Type="Tables" />
@@ -125,117 +65,55 @@
           <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Perfiles_Estados" Association="Self.FK_Perfiles_Estados">
-            <End Role="Estados" EntitySet="Estados" />
-            <End Role="Perfiles" EntitySet="Perfiles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Persona_Departamentos" Association="Self.FK_Persona_Departamentos">
-            <End Role="Departamentos" EntitySet="Departamentos" />
-            <End Role="Persona" EntitySet="Persona" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Persona_Estados" Association="Self.FK_Persona_Estados">
-            <End Role="Estados" EntitySet="Estados" />
-            <End Role="Persona" EntitySet="Persona" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Usuarios_Perfiles" Association="Self.FK_Usuarios_Perfiles">
-            <End Role="Perfiles" EntitySet="Perfiles" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Usuarios_Persona" Association="Self.FK_Usuarios_Persona">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HelpDeskDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="HelpDeskDBEntities" annotation:LazyLoadingEnabled="true" >
-          <EntitySet Name="Departamentos" EntityType="HelpDeskDBModel.Departamentos" />
-          <EntitySet Name="Estados" EntityType="HelpDeskDBModel.Estados" />
-          <EntitySet Name="Persona" EntityType="HelpDeskDBModel.Persona" />
-          <AssociationSet Name="FK_Persona_Departamentos" Association="HelpDeskDBModel.FK_Persona_Departamentos">
-            <End Role="Departamentos" EntitySet="Departamentos" />
-            <End Role="Persona" EntitySet="Persona" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Persona_Estados" Association="HelpDeskDBModel.FK_Persona_Estados">
-            <End Role="Estados" EntitySet="Estados" />
-            <End Role="Persona" EntitySet="Persona" />
-          </AssociationSet>
-          <EntitySet Name="sysdiagrams" EntityType="HelpDeskDBModel.sysdiagrams" />
           <FunctionImport Name="prValidaUsuario">
             <Parameter Name="usuario" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="Departamentos" EntityType="HelpDeskDBModel.Departamentos" />
+          <EntitySet Name="Estados" EntityType="HelpDeskDBModel.Estados" />
           <EntitySet Name="Perfiles" EntityType="HelpDeskDBModel.Perfiles" />
+          <EntitySet Name="Persona" EntityType="HelpDeskDBModel.Persona" />
+          <EntitySet Name="sysdiagrams" EntityType="HelpDeskDBModel.sysdiagrams" />
           <EntitySet Name="Usuarios" EntityType="HelpDeskDBModel.Usuarios" />
-          <AssociationSet Name="FK_Perfiles_Estados" Association="HelpDeskDBModel.FK_Perfiles_Estados">
-            <End Role="Estados" EntitySet="Estados" />
-            <End Role="Perfiles" EntitySet="Perfiles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Usuarios_Perfiles" Association="HelpDeskDBModel.FK_Usuarios_Perfiles">
-            <End Role="Perfiles" EntitySet="Perfiles" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Usuarios_Persona" Association="HelpDeskDBModel.FK_Usuarios_Persona">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Usuarios" EntitySet="Usuarios" />
-          </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Departamentos">
           <Key>
             <PropertyRef Name="codigo" />
           </Key>
-          <Property Name="codigo" Type="Int32" Nullable="false" />
+          <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Persona" Relationship="HelpDeskDBModel.FK_Persona_Departamentos" FromRole="Departamentos" ToRole="Persona" />
         </EntityType>
         <EntityType Name="Estados">
           <Key>
             <PropertyRef Name="codigo" />
           </Key>
-          <Property Name="codigo" Type="Int32" Nullable="false" />
+          <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Estado" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Persona" Relationship="HelpDeskDBModel.FK_Persona_Estados" FromRole="Estados" ToRole="Persona" />
-          <NavigationProperty Name="Perfiles" Relationship="HelpDeskDBModel.FK_Perfiles_Estados" FromRole="Estados" ToRole="Perfiles" />
+        </EntityType>
+        <EntityType Name="Perfiles">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Persona">
           <Key>
             <PropertyRef Name="codigo" />
           </Key>
-          <Property Name="codigo" Type="Int32" Nullable="false" />
+          <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Apellido" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Departamento" Type="Int32" Nullable="false" />
           <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Departamentos" Relationship="HelpDeskDBModel.FK_Persona_Departamentos" FromRole="Persona" ToRole="Departamentos" />
-          <NavigationProperty Name="Estados" Relationship="HelpDeskDBModel.FK_Persona_Estados" FromRole="Persona" ToRole="Estados" />
-          <NavigationProperty Name="Usuarios" Relationship="HelpDeskDBModel.FK_Usuarios_Persona" FromRole="Persona" ToRole="Usuarios" />
         </EntityType>
-        <Association Name="FK_Persona_Departamentos">
-          <End Type="HelpDeskDBModel.Departamentos" Role="Departamentos" Multiplicity="1" />
-          <End Type="HelpDeskDBModel.Persona" Role="Persona" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Departamentos">
-              <PropertyRef Name="codigo" />
-            </Principal>
-            <Dependent Role="Persona">
-              <PropertyRef Name="Departamento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Persona_Estados">
-          <End Type="HelpDeskDBModel.Estados" Role="Estados" Multiplicity="1" />
-          <End Type="HelpDeskDBModel.Persona" Role="Persona" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Estados">
-              <PropertyRef Name="codigo" />
-            </Principal>
-            <Dependent Role="Persona">
-              <PropertyRef Name="Estado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -245,16 +123,6 @@
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Perfiles">
-          <Key>
-            <PropertyRef Name="Codigo" />
-          </Key>
-          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Estado" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Estados" Relationship="HelpDeskDBModel.FK_Perfiles_Estados" FromRole="Perfiles" ToRole="Estados" />
-          <NavigationProperty Name="Usuarios" Relationship="HelpDeskDBModel.FK_Usuarios_Perfiles" FromRole="Perfiles" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -266,51 +134,13 @@
           <Property Name="Pass" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="IdPerfil" Type="Int32" />
           <Property Name="estado" Type="Int32" />
-          <NavigationProperty Name="Perfiles" Relationship="HelpDeskDBModel.FK_Usuarios_Perfiles" FromRole="Usuarios" ToRole="Perfiles" />
-          <NavigationProperty Name="Persona" Relationship="HelpDeskDBModel.FK_Usuarios_Persona" FromRole="Usuarios" ToRole="Persona" />
         </EntityType>
-        <Association Name="FK_Perfiles_Estados">
-          <End Type="HelpDeskDBModel.Estados" Role="Estados" Multiplicity="1" />
-          <End Type="HelpDeskDBModel.Perfiles" Role="Perfiles" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Estados">
-              <PropertyRef Name="codigo" />
-            </Principal>
-            <Dependent Role="Perfiles">
-              <PropertyRef Name="Estado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Usuarios_Perfiles">
-          <End Type="HelpDeskDBModel.Perfiles" Role="Perfiles" Multiplicity="0..1" />
-          <End Type="HelpDeskDBModel.Usuarios" Role="Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Perfiles">
-              <PropertyRef Name="Codigo" />
-            </Principal>
-            <Dependent Role="Usuarios">
-              <PropertyRef Name="IdPerfil" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Usuarios_Persona">
-          <End Type="HelpDeskDBModel.Persona" Role="Persona" Multiplicity="1" />
-          <End Type="HelpDeskDBModel.Usuarios" Role="Usuarios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Persona">
-              <PropertyRef Name="codigo" />
-            </Principal>
-            <Dependent Role="Usuarios">
-              <PropertyRef Name="CodPersona" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HelpDeskDBModelStoreContainer" CdmEntityContainer="HelpDeskDBEntities" >
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HelpDeskDBModelStoreContainer" CdmEntityContainer="HelpDeskDBEntities">
           <EntitySetMapping Name="Departamentos">
             <EntityTypeMapping TypeName="HelpDeskDBModel.Departamentos">
               <MappingFragment StoreEntitySet="Departamentos">
@@ -324,6 +154,15 @@
               <MappingFragment StoreEntitySet="Estados">
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perfiles">
+            <EntityTypeMapping TypeName="HelpDeskDBModel.Perfiles">
+              <MappingFragment StoreEntitySet="Perfiles">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -349,15 +188,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Perfiles">
-            <EntityTypeMapping TypeName="HelpDeskDBModel.Perfiles">
-              <MappingFragment StoreEntitySet="Perfiles">
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Usuarios">
             <EntityTypeMapping TypeName="HelpDeskDBModel.Usuarios">
               <MappingFragment StoreEntitySet="Usuarios">
@@ -371,8 +201,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
         </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -386,7 +215,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

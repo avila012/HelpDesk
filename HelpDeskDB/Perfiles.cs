@@ -14,18 +14,8 @@ namespace HelpDeskDB
     
     public partial class Perfiles
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Perfiles()
-        {
-            this.Usuarios = new HashSet<Usuarios>();
-        }
-    
         public int Codigo { get; set; }
         public string Descripcion { get; set; }
         public int Estado { get; set; }
-    
-        public virtual Estados Estados { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Usuarios> Usuarios { get; set; }
     }
 }

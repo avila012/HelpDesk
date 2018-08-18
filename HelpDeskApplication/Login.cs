@@ -22,11 +22,11 @@ namespace HelpDeskApplication
 
         private async void btnAcceder_Click(object sender, EventArgs e)
         {
-            frmMenuPrincipal MenuPrincipal = new frmMenuPrincipal();
+           /* frmMenuPrincipal MenuPrincipal = new frmMenuPrincipal();
             MenuPrincipal.Usuario = txtUsuario.Text;
             MenuPrincipal.Show();
             this.Hide();
-            /*
+            */
             try
             {
                 if (await Login(txtUsuario.Text, txtPass.Text))
@@ -45,7 +45,7 @@ namespace HelpDeskApplication
             catch (Exception errM)
             {
                 MessageBox.Show("Se ha presentado un error: " + errM.Message, "Erro no Manejado.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
+            }
         }
 
         /// <summary>

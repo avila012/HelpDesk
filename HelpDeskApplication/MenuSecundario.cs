@@ -1,15 +1,8 @@
 ﻿using System;
 using HelpDeskDB;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Configuration;
-using System.Threading.Tasks;
 
 namespace HelpDeskApplication
 {
@@ -20,7 +13,7 @@ namespace HelpDeskApplication
             InitializeComponent();
         }
 
-       public enum Tabs
+        public enum Tabs
         {
             Usuario,
             Departamento,
@@ -31,19 +24,24 @@ namespace HelpDeskApplication
         {
             Insertar,
             Eliminar,
-            Actualizar
+            Actualizar,
+            Cancelar
         }
 
         public Tabs TabActual { get; set; }
         public Accion SqlAccion { get; set; }
 
-        private async void frmMenuSecundario_Load(object sender, EventArgs e)
+        private void frmMenuSecundario_Load(object sender, EventArgs e)
         {
             try
             {
                 HelpDeskDBEntities HDEntities = new HelpDeskDBEntities();
 
-                var vLoad = (from tbl in HDEntities.Persona select new { tbl.codigo, tbl.Nombre, tbl.Apellido, usuario = tbl.Usuarios.FirstOrDefault().Usuario, departamento = tbl.Departamentos.Nombre, tbl.Estados.Estado });
+                var vLoad = (from tbl in HDEntities.Persona
+                             join user in HDEntities.Usuarios on tbl.codigo equals user.CodPersona
+                             join depto in HDEntities.Departamentos on tbl.Departamento equals depto.codigo
+                             join esta in HDEntities.Estados on tbl.Estado equals esta.codigo
+                             select new { tbl.codigo, tbl.Nombre, tbl.Apellido, usuario = user.Usuario, departamento = depto.Nombre, esta.Estado});
                 dgvUsuarios.DataSource = vLoad.ToList();
 
                 var loadDepartament = (from tbl in HDEntities.Departamentos select new { tbl.codigo, tbl.Nombre }).ToList();
@@ -77,7 +75,7 @@ namespace HelpDeskApplication
                 txtCodigo.Text = dgvUsuarios.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
                 txtNombre.Text = dgvUsuarios.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
                 txtApellido.Text = dgvUsuarios.Rows[e.RowIndex].Cells["apellido"].Value.ToString();
-                txtUsuario.Text = dgvUsuarios.Rows[e.RowIndex].Cells["Usuario"].Value.ToString();
+                txtUsuario.Text = (dgvUsuarios.Rows[e.RowIndex].Cells["Usuario"].Value == null) ? " " : dgvUsuarios.Rows[e.RowIndex].Cells["Usuario"].Value.ToString();
             }
         }
 
@@ -88,7 +86,7 @@ namespace HelpDeskApplication
                 int lol = Convert.ToInt16(cbDepartamento.SelectedValue);
             }
         }
-        
+
         private void sbtnNuevo_Click(object sender, EventArgs e)
         {
             sbtnEditar.Enabled = false;
@@ -131,42 +129,64 @@ namespace HelpDeskApplication
                             await HDEntities.SaveChangesAsync();
 
                             break;
-
-                        case Accion.Eliminar:
-
-                            int cod = Convert.ToInt16(txtCodigo.Text);
-                            var person = HDEntities.Persona.SingleOrDefault(x => x.codigo == cod);
-
-                            HDEntities.Persona.Remove(person);
-
-                            await HDEntities.SaveChangesAsync();
-
-                            break;
-
-                        case Accion.Actualizar:
-
-                            int codigo = Convert.ToInt16(txtCodigo.Text);
-                            var persona = HDEntities.Persona.SingleOrDefault(x => x.codigo == codigo);
-                            persona.Nombre = txtNombre.Text;
-                            persona.Apellido = txtApellido.Text;
-                            persona.Departamento = Convert.ToInt32(cbDepartamento.SelectedValue);
-                            persona.Estado = Convert.ToInt32(cbEstado.SelectedValue);
-
-                            await HDEntities.SaveChangesAsync();
-
-                            break;
                     }
 
-                    var vLoad = (from tbl in HDEntities.Persona select new { tbl.codigo, tbl.Nombre, tbl.Apellido, departamento = tbl.Departamentos.Nombre, tbl.Estados.Estado });
+                    var vLoad = (from tbl in HDEntities.Persona
+                                 join user in HDEntities.Usuarios on tbl.codigo equals user.CodPersona
+                                 join depto in HDEntities.Departamentos on tbl.Departamento equals depto.codigo
+                                 join esta in HDEntities.Estados on tbl.Estado equals esta.codigo
+                                 select new { tbl.codigo, tbl.Nombre, tbl.Apellido, usuario = user.Usuario, departamento = depto.Nombre, esta.Estado });
+
                     dgvUsuarios.DataSource = vLoad.ToList();
 
                     break;
 
                 case Tabs.Departamento:
 
+                    switch (SqlAccion)
+                    {
+                        case Accion.Insertar:
+
+                            var depto = new Departamentos()
+                            {
+                                Nombre = textBox1.Text,
+                            };
+
+                            HDEntities.Departamentos.Add(depto);
+
+                            await HDEntities.SaveChangesAsync();
+
+                            break;
+                    }
+
+                    var deptoLoad = (from tbl in HDEntities.Departamentos select new { tbl.codigo, tbl.Nombre });
+                    dgvUsuarios.DataSource = deptoLoad.ToList();
+
+
                     break;
 
                 case Tabs.Estado:
+
+                    
+                    switch (SqlAccion)
+                    {
+                        case Accion.Insertar:
+
+                            var estado = new Estados()
+                            {
+                                Estado = txtEstados.Text,
+                            };
+
+                            HDEntities.Estados.Add(estado);
+
+                            await HDEntities.SaveChangesAsync();
+
+                            break;                      
+                    }
+
+                    var deptoLoadGuardar = (from tbl in HDEntities.Departamentos select new { tbl.codigo, tbl.Nombre });
+                    dgvUsuarios.DataSource = deptoLoadGuardar.ToList();
+
 
                     break;
             }
@@ -200,7 +220,7 @@ namespace HelpDeskApplication
             sbtnNuevo.Enabled = true;
             sbtnGuardar.Enabled = false;
             sbtnCancelar.Enabled = false;
-            dgvUsuarios.Enabled = false;
+            dgvUsuarios.Enabled = true;
         }
 
         private void sbtnEditar_Click(object sender, EventArgs e)
@@ -212,6 +232,90 @@ namespace HelpDeskApplication
 
             SqlAccion = Accion.Actualizar;
 
+           // dgvUsuarios.Enabled = true;
+        }
+
+        private  void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            HelpDeskDBEntities HDEntities = new HelpDeskDBEntities();
+
+            SqlAccion = Accion.Eliminar;
+
+            switch (TabActual)
+            {
+                case Tabs.Usuario:
+
+                    switch (SqlAccion)
+                    {
+                        case Accion.Eliminar:
+
+                              int cod = Convert.ToInt16(dgvUsuarios.CurrentRow.Cells[0].Value);
+                              var person = HDEntities.Persona.FirstOrDefault(x => x.codigo == cod);
+
+                              HDEntities.Persona.Remove(person);
+                              
+
+                            HDEntities.SaveChanges();
+
+                            break;
+                    }
+
+                    var vLoad = (from tbl in HDEntities.Persona
+                                 join user in HDEntities.Usuarios on tbl.codigo equals user.CodPersona
+                                 join depto in HDEntities.Departamentos on tbl.Departamento equals depto.codigo
+                                 join esta in HDEntities.Estados on tbl.Estado equals esta.codigo
+                                 select new { tbl.codigo, tbl.Nombre, tbl.Apellido, usuario = user.Usuario, departamento = depto.Nombre, esta.Estado });
+                    dgvUsuarios.DataSource = vLoad.ToList();
+
+                    MessageBox.Show("El Registro solicitado fue eliminado", "Eliminar Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    break;
+
+                case Tabs.Departamento:
+
+                    switch (SqlAccion)
+                    {
+                        case Accion.Eliminar:
+
+                            int cod = Convert.ToInt16(dgvDeparmento.CurrentRow.Cells[0].Value);
+                            var deptoEliminar = HDEntities.Departamentos.SingleOrDefault(x => x.codigo == cod);
+                            HDEntities.Departamentos.Remove(deptoEliminar);
+                            HDEntities.SaveChanges();
+
+                            break;
+                    }
+
+                    var deptoLoad = (from tbl in HDEntities.Departamentos select new { tbl.codigo, tbl.Nombre });
+                    dgvDeparmento.DataSource = deptoLoad.ToList();
+
+
+                    break;
+
+                case Tabs.Estado:
+
+                    switch (SqlAccion)
+                    {
+                        case Accion.Eliminar:
+
+                            int cod = Convert.ToInt16(dgvEstados.CurrentRow.Cells[0].Value);
+                            var estadosEliminar = HDEntities.Estados.SingleOrDefault(x => x.codigo == cod);
+                            HDEntities.Estados.Remove(estadosEliminar);
+                            HDEntities.SaveChanges();
+
+                            break;
+                    }
+
+                    var estadoLoad = (from tbl in HDEntities.Estados select new { tbl.codigo, tbl.Estado });
+                    dgvEstados.DataSource = estadoLoad.ToList();
+
+                    break;
+
+            }
+
+            sbtnEditar.Enabled = true;
+            sbtnNuevo.Enabled = true;
+            sbtnGuardar.Enabled = false;
+            sbtnCancelar.Enabled = false;
             dgvUsuarios.Enabled = true;
         }
     }

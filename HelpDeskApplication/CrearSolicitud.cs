@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelpDeskDB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +27,20 @@ namespace HelpDeskApplication
 
         }
 
+        private void frmCrearSolicitud_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                HelpDeskDBEntities HDEntities = new HelpDeskDBEntities();
 
+                cbDepartamentos.DataSource = HDEntities.Departamentos.ToList();
+                cbDepartamentos.ValueMember = "codigo";
+                cbDepartamentos.DisplayMember = "nombre";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

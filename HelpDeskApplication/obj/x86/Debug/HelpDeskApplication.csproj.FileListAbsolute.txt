@@ -72,3 +72,5 @@ C:\Users\Home\Source\Repos\HelpDesk\HelpDeskApplication\obj\x86\Debug\HelpDeskAp
 C:\Users\Home\Source\Repos\HelpDesk\HelpDeskApplication\obj\x86\Debug\HelpDeskApplication.csproj.CoreCompileInputs.cache
 C:\Users\Home\Source\Repos\HelpDesk\HelpDeskApplication\obj\x86\Debug\HelpDeskApplication.exe
 C:\Users\Home\Source\Repos\HelpDesk\HelpDeskApplication\obj\x86\Debug\HelpDeskApplication.pdb
+C:\C#\HelpDesk\HelpDeskApplication\obj\x86\Debug\HelpDeskApplication.frmModificarPendientes.resources
+C:\C#\HelpDesk\HelpDeskApplication\obj\x86\Debug\HelpDeskApplication.frmReporteSolicitudes.resources

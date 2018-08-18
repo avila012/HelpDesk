@@ -67,6 +67,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -153,6 +154,7 @@
       <DependentUpon>HelpDeskModel.edmx</DependentUpon>
       <LastGenOutput>HelpDeskModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="HelpDeskModel.edmx.sql" />
     <Content Include="HelpDeskModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>HelpDeskModel.edmx</DependentUpon>

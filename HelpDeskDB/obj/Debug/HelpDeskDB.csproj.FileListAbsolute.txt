@@ -33,3 +33,4 @@ C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.csproj.Gener
 C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.csproj.CoreCompileInputs.cache
 C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.dll
 C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.pdb
+C:\C#\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.csprojResolveAssemblyReference.cache

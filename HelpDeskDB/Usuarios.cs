@@ -20,8 +20,5 @@ namespace HelpDeskDB
         public string Pass { get; set; }
         public Nullable<int> IdPerfil { get; set; }
         public Nullable<int> estado { get; set; }
-    
-        public virtual Perfiles Perfiles { get; set; }
-        public virtual Persona Persona { get; set; }
     }
 }

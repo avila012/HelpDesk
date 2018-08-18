@@ -29,9 +29,9 @@ namespace HelpDeskDB
     
         public virtual DbSet<Departamentos> Departamentos { get; set; }
         public virtual DbSet<Estados> Estados { get; set; }
+        public virtual DbSet<Perfiles> Perfiles { get; set; }
         public virtual DbSet<Persona> Persona { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Perfiles> Perfiles { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
     
         public virtual int prValidaUsuario(string usuario, string password)

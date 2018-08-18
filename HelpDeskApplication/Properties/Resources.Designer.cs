@@ -99,5 +99,15 @@ namespace HelpDeskApplication.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap if_free_27_616650 {
+            get {
+                object obj = ResourceManager.GetObject("if_free-27_616650", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

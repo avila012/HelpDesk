@@ -4,19 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4ef673541432467eab0a884db7a14e4f" Name="Diagram1" >
-        <EntityTypeShape EntityType="HelpDeskDBModel.Departamentos" Width="1.5" PointX="2" PointY="1" />
-        <EntityTypeShape EntityType="HelpDeskDBModel.Estados" Width="1.5" PointX="6.5" PointY="1" />
-        <EntityTypeShape EntityType="HelpDeskDBModel.Persona" Width="1.5" PointX="4.5" PointY="4" />
-        <AssociationConnector Association="HelpDeskDBModel.FK_Persona_Departamentos" />
-        <AssociationConnector Association="HelpDeskDBModel.FK_Persona_Estados" />
-        <EntityTypeShape EntityType="HelpDeskDBModel.sysdiagrams" Width="1.5" PointX="11.25" PointY="1.25" />
-        <EntityTypeShape EntityType="HelpDeskDBModel.Perfiles" Width="1.5" PointX="8.75" PointY="0.875" />
-        <EntityTypeShape EntityType="HelpDeskDBModel.Usuarios" Width="1.5" PointX="11" PointY="4.5" />
-        <AssociationConnector Association="HelpDeskDBModel.FK_Perfiles_Estados" />
-        <AssociationConnector Association="HelpDeskDBModel.FK_Usuarios_Perfiles" />
-        <AssociationConnector Association="HelpDeskDBModel.FK_Usuarios_Persona" />
-        </Diagram>
+      <Diagram DiagramId="4ef673541432467eab0a884db7a14e4f" Name="Diagram1" ZoomLevel="74" >
+        <EntityTypeShape EntityType="HelpDeskDBModel.Departamentos" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HelpDeskDBModel.Estados" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HelpDeskDBModel.Perfiles" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="HelpDeskDBModel.Persona" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="HelpDeskDBModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HelpDeskDBModel.Usuarios" Width="1.5" PointX="4.75" PointY="3.75" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
