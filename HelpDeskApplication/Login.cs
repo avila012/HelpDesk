@@ -33,9 +33,10 @@ namespace HelpDeskApplication
                     var nombrePersona = (from tbl in HDEntities.Persona
                                  join user in HDEntities.Usuarios on tbl.codigo equals user.CodPersona
                                  where user.Usuario == txtUsuario.Text
-                                 select new { nombrePersona = tbl.Nombre + " " + tbl.Apellido}).ToList();
+                                 select new { codigoPersona = user.CodPersona, nombrePersona = tbl.Nombre + " " + tbl.Apellido}).ToList();
 
                     VariablesComunes.NombrePersona = nombrePersona[0].nombrePersona.ToString();
+                    VariablesComunes.CodigoPersona = nombrePersona[0].codigoPersona.ToString();
 
                     frmMenuPrincipal MenuPrincipal = new frmMenuPrincipal();
                     MenuPrincipal.Usuario = VariablesComunes.NombrePersona;

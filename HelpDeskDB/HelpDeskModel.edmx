@@ -17,7 +17,7 @@
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Estado" Type="nchar" MaxLength="10" />
+          <Property Name="Estado" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="Perfiles">
           <Key>
@@ -36,6 +36,20 @@
           <Property Name="Apellido" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Departamento" Type="int" Nullable="false" />
           <Property Name="Estado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Solicitud">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="codSolicitante" Type="int" Nullable="false" />
+          <Property Name="deptoDestino" Type="int" Nullable="false" />
+          <Property Name="fechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="detalleSolicitud" Type="varchar" MaxLength="3000" Nullable="false" />
+          <Property Name="codAsignado" Type="int" Nullable="false" />
+          <Property Name="fechaCierre" Type="datetime" Nullable="false" />
+          <Property Name="estadoSolicitud" Type="int" Nullable="false" />
+          <Property Name="DetalleCierreSolicitud" Type="varchar" MaxLength="3000" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -63,6 +77,7 @@
           <EntitySet Name="Estados" EntityType="Self.Estados" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Perfiles" EntityType="Self.Perfiles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Solicitud" EntityType="Self.Solicitud" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -81,6 +96,7 @@
           <EntitySet Name="Persona" EntityType="HelpDeskDBModel.Persona" />
           <EntitySet Name="sysdiagrams" EntityType="HelpDeskDBModel.sysdiagrams" />
           <EntitySet Name="Usuarios" EntityType="HelpDeskDBModel.Usuarios" />
+          <EntitySet Name="Solicitud" EntityType="HelpDeskDBModel.Solicitud" />
           </EntityContainer>
         <EntityType Name="Departamentos">
           <Key>
@@ -94,7 +110,7 @@
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Estado" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Perfiles">
           <Key>
@@ -134,6 +150,20 @@
           <Property Name="Pass" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="IdPerfil" Type="Int32" />
           <Property Name="estado" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Solicitud">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codSolicitante" Type="Int32" Nullable="false" />
+          <Property Name="deptoDestino" Type="Int32" Nullable="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="detalleSolicitud" Type="String" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="codAsignado" Type="Int32" Nullable="false" />
+          <Property Name="fechaCierre" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="estadoSolicitud" Type="Int32" Nullable="false" />
+          <Property Name="DetalleCierreSolicitud" Type="String" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -197,6 +227,21 @@
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
                 <ScalarProperty Name="CodPersona" ColumnName="CodPersona" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Solicitud">
+            <EntityTypeMapping TypeName="HelpDeskDBModel.Solicitud">
+              <MappingFragment StoreEntitySet="Solicitud">
+                <ScalarProperty Name="DetalleCierreSolicitud" ColumnName="DetalleCierreSolicitud" />
+                <ScalarProperty Name="estadoSolicitud" ColumnName="estadoSolicitud" />
+                <ScalarProperty Name="fechaCierre" ColumnName="fechaCierre" />
+                <ScalarProperty Name="codAsignado" ColumnName="codAsignado" />
+                <ScalarProperty Name="detalleSolicitud" ColumnName="detalleSolicitud" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="deptoDestino" ColumnName="deptoDestino" />
+                <ScalarProperty Name="codSolicitante" ColumnName="codSolicitante" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

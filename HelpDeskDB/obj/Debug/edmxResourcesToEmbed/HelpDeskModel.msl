@@ -60,5 +60,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Solicitud">
+      <EntityTypeMapping TypeName="HelpDeskDBModel.Solicitud">
+        <MappingFragment StoreEntitySet="Solicitud">
+          <ScalarProperty Name="DetalleCierreSolicitud" ColumnName="DetalleCierreSolicitud" />
+          <ScalarProperty Name="estadoSolicitud" ColumnName="estadoSolicitud" />
+          <ScalarProperty Name="fechaCierre" ColumnName="fechaCierre" />
+          <ScalarProperty Name="codAsignado" ColumnName="codAsignado" />
+          <ScalarProperty Name="detalleSolicitud" ColumnName="detalleSolicitud" />
+          <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+          <ScalarProperty Name="deptoDestino" ColumnName="deptoDestino" />
+          <ScalarProperty Name="codSolicitante" ColumnName="codSolicitante" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -32,18 +32,18 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.rtxtDetalleSolicitud = new System.Windows.Forms.RichTextBox();
+            this.txtSolicitante = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbDepartamentos = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnNuevoCS = new System.Windows.Forms.ToolStripButton();
             this.btnEditaCS = new System.Windows.Forms.ToolStripButton();
+            this.btnEliminarCS = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnGuardarCS = new System.Windows.Forms.ToolStripButton();
             this.btnCancelarCS = new System.Windows.Forms.ToolStripButton();
-            this.btnEliminarCS = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -53,8 +53,8 @@
             // 
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.richTextBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.rtxtDetalleSolicitud);
+            this.groupBox1.Controls.Add(this.txtSolicitante);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cbDepartamentos);
             this.groupBox1.Controls.Add(this.label2);
@@ -89,23 +89,23 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // richTextBox1
+            // rtxtDetalleSolicitud
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(22, 112);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(626, 178);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "";
+            this.rtxtDetalleSolicitud.Location = new System.Drawing.Point(22, 112);
+            this.rtxtDetalleSolicitud.Name = "rtxtDetalleSolicitud";
+            this.rtxtDetalleSolicitud.Size = new System.Drawing.Size(626, 178);
+            this.rtxtDetalleSolicitud.TabIndex = 7;
+            this.rtxtDetalleSolicitud.Text = "";
             // 
-            // textBox2
+            // txtSolicitante
             // 
-            this.textBox2.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(354, 53);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(294, 26);
-            this.textBox2.TabIndex = 6;
+            this.txtSolicitante.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtSolicitante.Enabled = false;
+            this.txtSolicitante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSolicitante.Location = new System.Drawing.Point(354, 53);
+            this.txtSolicitante.Name = "txtSolicitante";
+            this.txtSolicitante.Size = new System.Drawing.Size(294, 26);
+            this.txtSolicitante.TabIndex = 6;
             // 
             // label3
             // 
@@ -155,6 +155,7 @@
             // btnNuevoCS
             // 
             this.btnNuevoCS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnNuevoCS.Enabled = false;
             this.btnNuevoCS.Image = global::HelpDeskApplication.Properties.Resources.if_free_10_463016;
             this.btnNuevoCS.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNuevoCS.Name = "btnNuevoCS";
@@ -164,11 +165,22 @@
             // btnEditaCS
             // 
             this.btnEditaCS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnEditaCS.Enabled = false;
             this.btnEditaCS.Image = global::HelpDeskApplication.Properties.Resources.if_edit_173002;
             this.btnEditaCS.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditaCS.Name = "btnEditaCS";
             this.btnEditaCS.Size = new System.Drawing.Size(28, 28);
             this.btnEditaCS.Text = "toolStripButton2";
+            // 
+            // btnEliminarCS
+            // 
+            this.btnEliminarCS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnEliminarCS.Enabled = false;
+            this.btnEliminarCS.Image = global::HelpDeskApplication.Properties.Resources.if_free_27_616650;
+            this.btnEliminarCS.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEliminarCS.Name = "btnEliminarCS";
+            this.btnEliminarCS.Size = new System.Drawing.Size(28, 28);
+            this.btnEliminarCS.Text = "toolStripButton1";
             // 
             // toolStripSeparator1
             // 
@@ -183,25 +195,17 @@
             this.btnGuardarCS.Name = "btnGuardarCS";
             this.btnGuardarCS.Size = new System.Drawing.Size(28, 28);
             this.btnGuardarCS.Text = "toolStripButton4";
+            this.btnGuardarCS.Click += new System.EventHandler(this.btnGuardarCS_Click);
             // 
             // btnCancelarCS
             // 
             this.btnCancelarCS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnCancelarCS.Enabled = false;
             this.btnCancelarCS.Image = global::HelpDeskApplication.Properties.Resources.if_free_09_463017;
             this.btnCancelarCS.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancelarCS.Name = "btnCancelarCS";
             this.btnCancelarCS.Size = new System.Drawing.Size(28, 28);
             this.btnCancelarCS.Text = "toolStripButton5";
-            // 
-            // btnEliminarCS
-            // 
-            this.btnEliminarCS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnEliminarCS.Image = global::HelpDeskApplication.Properties.Resources.if_free_27_616650;
-            this.btnEliminarCS.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEliminarCS.Name = "btnEliminarCS";
-            this.btnEliminarCS.Size = new System.Drawing.Size(28, 28);
-            this.btnEliminarCS.Text = "toolStripButton1";
-            this.btnEliminarCS.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // frmCrearSolicitud
             // 
@@ -232,11 +236,11 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtSolicitante;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbDepartamentos;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtxtDetalleSolicitud;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnNuevoCS;

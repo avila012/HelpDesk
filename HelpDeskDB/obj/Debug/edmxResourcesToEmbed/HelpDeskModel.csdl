@@ -11,6 +11,7 @@
     <EntitySet Name="Persona" EntityType="HelpDeskDBModel.Persona" />
     <EntitySet Name="sysdiagrams" EntityType="HelpDeskDBModel.sysdiagrams" />
     <EntitySet Name="Usuarios" EntityType="HelpDeskDBModel.Usuarios" />
+    <EntitySet Name="Solicitud" EntityType="HelpDeskDBModel.Solicitud" />
   </EntityContainer>
   <EntityType Name="Departamentos">
     <Key>
@@ -24,7 +25,7 @@
       <PropertyRef Name="codigo" />
     </Key>
     <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Estado" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Perfiles">
     <Key>
@@ -64,5 +65,19 @@
     <Property Name="Pass" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="IdPerfil" Type="Int32" />
     <Property Name="estado" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Solicitud">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codSolicitante" Type="Int32" Nullable="false" />
+    <Property Name="deptoDestino" Type="Int32" Nullable="false" />
+    <Property Name="fechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="detalleSolicitud" Type="String" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="false" />
+    <Property Name="codAsignado" Type="Int32" Nullable="false" />
+    <Property Name="fechaCierre" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="estadoSolicitud" Type="Int32" Nullable="false" />
+    <Property Name="DetalleCierreSolicitud" Type="String" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

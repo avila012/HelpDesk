@@ -12,7 +12,7 @@
       <PropertyRef Name="codigo" />
     </Key>
     <Property Name="codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Estado" Type="nchar" MaxLength="10" />
+    <Property Name="Estado" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="Perfiles">
     <Key>
@@ -31,6 +31,20 @@
     <Property Name="Apellido" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Departamento" Type="int" Nullable="false" />
     <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Solicitud">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codSolicitante" Type="int" Nullable="false" />
+    <Property Name="deptoDestino" Type="int" Nullable="false" />
+    <Property Name="fechaCreacion" Type="datetime" Nullable="false" />
+    <Property Name="detalleSolicitud" Type="varchar" MaxLength="3000" Nullable="false" />
+    <Property Name="codAsignado" Type="int" Nullable="false" />
+    <Property Name="fechaCierre" Type="datetime" Nullable="false" />
+    <Property Name="estadoSolicitud" Type="int" Nullable="false" />
+    <Property Name="DetalleCierreSolicitud" Type="varchar" MaxLength="3000" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -58,6 +72,7 @@
     <EntitySet Name="Estados" EntityType="Self.Estados" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Perfiles" EntityType="Self.Perfiles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Solicitud" EntityType="Self.Solicitud" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

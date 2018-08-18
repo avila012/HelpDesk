@@ -105,6 +105,9 @@
       <DependentUpon>HelpDeskModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Solicitud.cs">
+      <DependentUpon>HelpDeskModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="SqlFunctions.cs" />
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>HelpDeskModel.tt</DependentUpon>

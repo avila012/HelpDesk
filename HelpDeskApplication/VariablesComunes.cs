@@ -8,6 +8,7 @@ namespace HelpDeskApplication
 {
     class VariablesComunes
     {
+        public static string CodigoPersona { get; set; }
         public static string NombrePersona { get; set; }
         public static string Usuario{ get; set; }
     }
