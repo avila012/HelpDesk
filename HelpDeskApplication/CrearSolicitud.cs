@@ -33,6 +33,7 @@ namespace HelpDeskApplication
             {
                 HelpDeskDBEntities HDEntities = new HelpDeskDBEntities();
 
+
                 cbDepartamentos.DataSource = HDEntities.Departamentos.ToList();
                 cbDepartamentos.ValueMember = "codigo";
                 cbDepartamentos.DisplayMember = "nombre";
@@ -41,6 +42,11 @@ namespace HelpDeskApplication
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

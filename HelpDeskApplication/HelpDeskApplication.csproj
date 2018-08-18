@@ -103,6 +103,7 @@
     <Compile Include="SolicitudesPendientes.Designer.cs">
       <DependentUpon>SolicitudesPendientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="VariablesComunes.cs" />
     <EmbeddedResource Include="CrearSolicitud.resx">
       <DependentUpon>CrearSolicitud.cs</DependentUpon>
     </EmbeddedResource>

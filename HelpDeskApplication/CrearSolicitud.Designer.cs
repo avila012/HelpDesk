@@ -37,14 +37,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cbDepartamentos = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.btnEdita = new System.Windows.Forms.ToolStripButton();
+            this.btnNuevoCS = new System.Windows.Forms.ToolStripButton();
+            this.btnEditaCS = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.btnGuardarCS = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelarCS = new System.Windows.Forms.ToolStripButton();
+            this.btnEliminarCS = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -59,8 +58,6 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cbDepartamentos);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -124,96 +121,87 @@
             // 
             this.cbDepartamentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbDepartamentos.FormattingEnabled = true;
-            this.cbDepartamentos.Location = new System.Drawing.Point(170, 51);
+            this.cbDepartamentos.Location = new System.Drawing.Point(27, 51);
             this.cbDepartamentos.Name = "cbDepartamentos";
-            this.cbDepartamentos.Size = new System.Drawing.Size(175, 28);
+            this.cbDepartamentos.Size = new System.Drawing.Size(263, 28);
             this.cbDepartamentos.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(166, 28);
+            this.label2.Location = new System.Drawing.Point(23, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 20);
+            this.label2.Size = new System.Drawing.Size(116, 20);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Departamento";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Codigo Solicitud";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(22, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 26);
-            this.textBox1.TabIndex = 0;
+            this.label2.Text = "Depto. Destino";
             // 
             // toolStrip1
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnNuevo,
-            this.btnEdita,
+            this.btnNuevoCS,
+            this.btnEditaCS,
+            this.btnEliminarCS,
             this.toolStripSeparator1,
-            this.toolStripButton4,
-            this.toolStripButton5});
+            this.btnGuardarCS,
+            this.btnCancelarCS});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(940, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(940, 31);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btnNuevo
+            // btnNuevoCS
             // 
-            this.btnNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnNuevo.Image = global::HelpDeskApplication.Properties.Resources.if_free_10_463016;
-            this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(23, 22);
-            this.btnNuevo.Text = "toolStripButton1";
+            this.btnNuevoCS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnNuevoCS.Image = global::HelpDeskApplication.Properties.Resources.if_free_10_463016;
+            this.btnNuevoCS.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevoCS.Name = "btnNuevoCS";
+            this.btnNuevoCS.Size = new System.Drawing.Size(28, 28);
+            this.btnNuevoCS.Text = "toolStripButton1";
             // 
-            // btnEdita
+            // btnEditaCS
             // 
-            this.btnEdita.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnEdita.Image = global::HelpDeskApplication.Properties.Resources.if_edit_173002;
-            this.btnEdita.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEdita.Name = "btnEdita";
-            this.btnEdita.Size = new System.Drawing.Size(23, 22);
-            this.btnEdita.Text = "toolStripButton2";
+            this.btnEditaCS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnEditaCS.Image = global::HelpDeskApplication.Properties.Resources.if_edit_173002;
+            this.btnEditaCS.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEditaCS.Name = "btnEditaCS";
+            this.btnEditaCS.Size = new System.Drawing.Size(28, 28);
+            this.btnEditaCS.Text = "toolStripButton2";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
-            // toolStripButton4
+            // btnGuardarCS
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = global::HelpDeskApplication.Properties.Resources.if_floppy_285657;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButton4";
+            this.btnGuardarCS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnGuardarCS.Image = global::HelpDeskApplication.Properties.Resources.if_floppy_285657;
+            this.btnGuardarCS.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGuardarCS.Name = "btnGuardarCS";
+            this.btnGuardarCS.Size = new System.Drawing.Size(28, 28);
+            this.btnGuardarCS.Text = "toolStripButton4";
             // 
-            // toolStripButton5
+            // btnCancelarCS
             // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = global::HelpDeskApplication.Properties.Resources.if_free_09_463017;
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "toolStripButton5";
+            this.btnCancelarCS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnCancelarCS.Image = global::HelpDeskApplication.Properties.Resources.if_free_09_463017;
+            this.btnCancelarCS.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancelarCS.Name = "btnCancelarCS";
+            this.btnCancelarCS.Size = new System.Drawing.Size(28, 28);
+            this.btnCancelarCS.Text = "toolStripButton5";
+            // 
+            // btnEliminarCS
+            // 
+            this.btnEliminarCS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnEliminarCS.Image = global::HelpDeskApplication.Properties.Resources.if_free_27_616650;
+            this.btnEliminarCS.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEliminarCS.Name = "btnEliminarCS";
+            this.btnEliminarCS.Size = new System.Drawing.Size(28, 28);
+            this.btnEliminarCS.Text = "toolStripButton1";
+            this.btnEliminarCS.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // frmCrearSolicitud
             // 
@@ -244,8 +232,6 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbDepartamentos;
@@ -253,10 +239,11 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnNuevo;
-        private System.Windows.Forms.ToolStripButton btnEdita;
+        private System.Windows.Forms.ToolStripButton btnNuevoCS;
+        private System.Windows.Forms.ToolStripButton btnEditaCS;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton btnGuardarCS;
+        private System.Windows.Forms.ToolStripButton btnCancelarCS;
+        private System.Windows.Forms.ToolStripButton btnEliminarCS;
     }
 }

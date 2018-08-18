@@ -22,17 +22,23 @@ namespace HelpDeskApplication
 
         private async void btnAcceder_Click(object sender, EventArgs e)
         {
-           /* frmMenuPrincipal MenuPrincipal = new frmMenuPrincipal();
-            MenuPrincipal.Usuario = txtUsuario.Text;
-            MenuPrincipal.Show();
-            this.Hide();
-            */
             try
             {
                 if (await Login(txtUsuario.Text, txtPass.Text))
                 {
+                    HelpDeskDBEntities HDEntities = new HelpDeskDBEntities();
+
+                    VariablesComunes.Usuario = txtUsuario.Text;
+
+                    var nombrePersona = (from tbl in HDEntities.Persona
+                                 join user in HDEntities.Usuarios on tbl.codigo equals user.CodPersona
+                                 where user.Usuario == txtUsuario.Text
+                                 select new { nombrePersona = tbl.Nombre + " " + tbl.Apellido}).ToList();
+
+                    VariablesComunes.NombrePersona = nombrePersona[0].nombrePersona.ToString();
+
                     frmMenuPrincipal MenuPrincipal = new frmMenuPrincipal();
-                    MenuPrincipal.Usuario = txtUsuario.Text;
+                    MenuPrincipal.Usuario = VariablesComunes.NombrePersona;
                     MenuPrincipal.Show();
                     this.Hide();
                 }
