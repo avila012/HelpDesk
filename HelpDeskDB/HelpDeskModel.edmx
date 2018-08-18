@@ -72,6 +72,29 @@
           <Property Name="IdPerfil" Type="int" />
           <Property Name="estado" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HelpDeskDB.dbo.solicitudes_vista' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="solicitudes_vista">
+          <Key>
+            <PropertyRef Name="Solicitud" />
+            <PropertyRef Name="Creacion" />
+            <PropertyRef Name="Detalle" />
+            <PropertyRef Name="codSolicitante" />
+            <PropertyRef Name="deptoDestino" />
+            <PropertyRef Name="codAsignado" />
+            <PropertyRef Name="estadoSolicitud" />
+          </Key>
+          <Property Name="Solicitud" Type="int" Nullable="false" />
+          <Property Name="Departamento" Type="varchar" MaxLength="50" />
+          <Property Name="Solicitante" Type="varchar" MaxLength="41" />
+          <Property Name="Creacion" Type="datetime" Nullable="false" />
+          <Property Name="Detalle" Type="varchar" MaxLength="3000" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="20" />
+          <Property Name="codSolicitante" Type="int" Nullable="false" />
+          <Property Name="deptoDestino" Type="int" Nullable="false" />
+          <Property Name="codAsignado" Type="int" Nullable="false" />
+          <Property Name="estadoSolicitud" Type="int" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="HelpDeskDBModelStoreContainer">
           <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Estados" EntityType="Self.Estados" Schema="dbo" store:Type="Tables" />
@@ -80,6 +103,20 @@
           <EntitySet Name="Solicitud" EntityType="Self.Solicitud" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="solicitudes_vista" EntityType="Self.solicitudes_vista" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [solicitudes_vista].[Solicitud] AS [Solicitud], 
+    [solicitudes_vista].[Departamento] AS [Departamento], 
+    [solicitudes_vista].[Solicitante] AS [Solicitante], 
+    [solicitudes_vista].[Creacion] AS [Creacion], 
+    [solicitudes_vista].[Detalle] AS [Detalle], 
+    [solicitudes_vista].[Estado] AS [Estado], 
+    [solicitudes_vista].[codSolicitante] AS [codSolicitante], 
+    [solicitudes_vista].[deptoDestino] AS [deptoDestino], 
+    [solicitudes_vista].[codAsignado] AS [codAsignado], 
+    [solicitudes_vista].[estadoSolicitud] AS [estadoSolicitud]
+    FROM [dbo].[solicitudes_vista] AS [solicitudes_vista]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -97,6 +134,7 @@
           <EntitySet Name="sysdiagrams" EntityType="HelpDeskDBModel.sysdiagrams" />
           <EntitySet Name="Usuarios" EntityType="HelpDeskDBModel.Usuarios" />
           <EntitySet Name="Solicitud" EntityType="HelpDeskDBModel.Solicitud" />
+          <EntitySet Name="solicitudes_vista" EntityType="HelpDeskDBModel.solicitudes_vista" />
           </EntityContainer>
         <EntityType Name="Departamentos">
           <Key>
@@ -164,6 +202,27 @@
           <Property Name="fechaCierre" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="estadoSolicitud" Type="Int32" Nullable="false" />
           <Property Name="DetalleCierreSolicitud" Type="String" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="solicitudes_vista">
+          <Key>
+            <PropertyRef Name="Solicitud" />
+            <PropertyRef Name="Creacion" />
+            <PropertyRef Name="Detalle" />
+            <PropertyRef Name="codSolicitante" />
+            <PropertyRef Name="deptoDestino" />
+            <PropertyRef Name="codAsignado" />
+            <PropertyRef Name="estadoSolicitud" />
+          </Key>
+          <Property Name="Solicitud" Type="Int32" Nullable="false" />
+          <Property Name="Departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Solicitante" Type="String" MaxLength="41" FixedLength="false" Unicode="false" />
+          <Property Name="Creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Detalle" Type="String" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="codSolicitante" Type="Int32" Nullable="false" />
+          <Property Name="deptoDestino" Type="Int32" Nullable="false" />
+          <Property Name="codAsignado" Type="Int32" Nullable="false" />
+          <Property Name="estadoSolicitud" Type="Int32" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -242,6 +301,22 @@
                 <ScalarProperty Name="deptoDestino" ColumnName="deptoDestino" />
                 <ScalarProperty Name="codSolicitante" ColumnName="codSolicitante" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="solicitudes_vista">
+            <EntityTypeMapping TypeName="HelpDeskDBModel.solicitudes_vista">
+              <MappingFragment StoreEntitySet="solicitudes_vista">
+                <ScalarProperty Name="estadoSolicitud" ColumnName="estadoSolicitud" />
+                <ScalarProperty Name="codAsignado" ColumnName="codAsignado" />
+                <ScalarProperty Name="deptoDestino" ColumnName="deptoDestino" />
+                <ScalarProperty Name="codSolicitante" ColumnName="codSolicitante" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+                <ScalarProperty Name="Creacion" ColumnName="Creacion" />
+                <ScalarProperty Name="Solicitante" ColumnName="Solicitante" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="Solicitud" ColumnName="Solicitud" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

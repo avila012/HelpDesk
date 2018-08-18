@@ -34,6 +34,7 @@ namespace HelpDeskDB
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<Solicitud> Solicitud { get; set; }
+        public virtual DbSet<solicitudes_vista> solicitudes_vista { get; set; }
     
         public virtual int prValidaUsuario(string usuario, string password)
         {

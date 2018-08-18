@@ -75,5 +75,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="solicitudes_vista">
+      <EntityTypeMapping TypeName="HelpDeskDBModel.solicitudes_vista">
+        <MappingFragment StoreEntitySet="solicitudes_vista">
+          <ScalarProperty Name="estadoSolicitud" ColumnName="estadoSolicitud" />
+          <ScalarProperty Name="codAsignado" ColumnName="codAsignado" />
+          <ScalarProperty Name="deptoDestino" ColumnName="deptoDestino" />
+          <ScalarProperty Name="codSolicitante" ColumnName="codSolicitante" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+          <ScalarProperty Name="Creacion" ColumnName="Creacion" />
+          <ScalarProperty Name="Solicitante" ColumnName="Solicitante" />
+          <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+          <ScalarProperty Name="Solicitud" ColumnName="Solicitud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

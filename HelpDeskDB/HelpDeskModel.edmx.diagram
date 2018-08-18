@@ -12,6 +12,7 @@
         <EntityTypeShape EntityType="HelpDeskDBModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="HelpDeskDBModel.Usuarios" Width="1.5" PointX="4.75" PointY="3.75" />
         <EntityTypeShape EntityType="HelpDeskDBModel.Solicitud" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HelpDeskDBModel.solicitudes_vista" Width="1.5" PointX="9.5" PointY="1.375" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

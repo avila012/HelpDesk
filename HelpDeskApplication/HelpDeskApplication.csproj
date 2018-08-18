@@ -59,6 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CerrarSolicitud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CerrarSolicitud.Designer.cs">
+      <DependentUpon>CerrarSolicitud.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearSolicitud.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
       <DependentUpon>SolicitudesPendientes.cs</DependentUpon>
     </Compile>
     <Compile Include="VariablesComunes.cs" />
+    <EmbeddedResource Include="CerrarSolicitud.resx">
+      <DependentUpon>CerrarSolicitud.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearSolicitud.resx">
       <DependentUpon>CrearSolicitud.cs</DependentUpon>
     </EmbeddedResource>
