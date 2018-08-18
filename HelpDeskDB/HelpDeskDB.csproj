@@ -97,6 +97,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HelpDeskModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Perfiles.cs">
+      <DependentUpon>HelpDeskModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Persona.cs">
       <DependentUpon>HelpDeskModel.tt</DependentUpon>
     </Compile>

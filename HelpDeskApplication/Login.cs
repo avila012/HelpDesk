@@ -22,9 +22,14 @@ namespace HelpDeskApplication
 
         private async void btnAcceder_Click(object sender, EventArgs e)
         {
+            frmMenuPrincipal MenuPrincipal = new frmMenuPrincipal();
+            MenuPrincipal.Usuario = txtUsuario.Text;
+            MenuPrincipal.Show();
+            this.Hide();
+            /*
             try
             {
-                if (await Login(txtUsuario.Text,txtPass.Text))
+                if (await Login(txtUsuario.Text, txtPass.Text))
                 {
                     frmMenuPrincipal MenuPrincipal = new frmMenuPrincipal();
                     MenuPrincipal.Usuario = txtUsuario.Text;
@@ -39,10 +44,8 @@ namespace HelpDeskApplication
             }
             catch (Exception errM)
             {
-
                 MessageBox.Show("Se ha presentado un error: " + errM.Message, "Erro no Manejado.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
+            }*/
         }
 
         /// <summary>
@@ -53,25 +56,44 @@ namespace HelpDeskApplication
         /// <returns></returns>
         private async Task<bool> Login(string usuario, string password)
         {
-            using (var conex = new SqlConnection(ConfigurationManager.ConnectionStrings["cnnString"].ToString()))
+            HelpDeskDBEntities helpDeskDB = new HelpDeskDBEntities();
+            var result = helpDeskDB.Usuarios.Where(x => x.Usuario == usuario && x.Pass == password).SingleOrDefault();
+
+            if (result == null)
             {
-                await conex.OpenAsync();
-
-                using (var cmd = conex.CreateCommand())
-                {
-                    cmd.CommandText = "prValidaUsuario";
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = usuario;
-                    cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
-                    cmd.Parameters.Add("@result", SqlDbType.Bit).Direction = ParameterDirection.Output;
-
-                    await cmd.ExecuteNonQueryAsync();
-
-                    var result = Convert.ToBoolean(cmd.Parameters["@result"].Value);
-                    return result;
-                }
+                return false;
             }
+
+            return true;
         }
+
+        /// <summary>
+        /// Metodo para iniciar sesion en la aplicacion
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        //private async Task<bool> Login(string usuario, string password)
+        //{
+        //    using (var conex = new SqlConnection(ConfigurationManager.ConnectionStrings["cnnString"].ToString()))
+        //    {
+        //        await conex.OpenAsync();
+
+        //        using (var cmd = conex.CreateCommand())
+        //        {
+        //            cmd.CommandText = "prValidaUsuario";
+        //            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+        //            cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = usuario;
+        //            cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
+        //            cmd.Parameters.Add("@result", SqlDbType.Bit).Direction = ParameterDirection.Output;
+
+        //            await cmd.ExecuteNonQueryAsync();
+
+        //            var result = Convert.ToBoolean(cmd.Parameters["@result"].Value);
+        //            return result;
+        //        }
+        //    }
+        //}
 
         private void frmLogin_Load(object sender, EventArgs e)
         {

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuSecundario));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -37,7 +37,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevoGuardar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,26 +57,27 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvDeparmento = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dgvEstados = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.sbtnNuevo = new System.Windows.Forms.ToolStripButton();
             this.sbtnEditar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.sbtnGuardar = new System.Windows.Forms.ToolStripButton();
             this.sbtnCancelar = new System.Windows.Forms.ToolStripButton();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeparmento)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstados)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,13 +87,13 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(0, 38);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(718, 515);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl1_Selecting);
-            this.tabControl1.TabIndexChanged += new System.EventHandler(this.tabControl1_TabIndexChanged);
             // 
             // tabPage1
             // 
@@ -102,7 +103,7 @@
             this.tabPage1.Controls.Add(this.btnEliminar);
             this.tabPage1.Controls.Add(this.btnEditar);
             this.tabPage1.Controls.Add(this.btnNuevoGuardar);
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.dgvUsuarios);
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.cbEstado);
@@ -121,23 +122,23 @@
             this.tabPage1.Size = new System.Drawing.Size(710, 482);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Usuarios";
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(273, 93);
+            this.label8.Location = new System.Drawing.Point(246, 93);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 20);
+            this.label8.Size = new System.Drawing.Size(61, 20);
             this.label8.TabIndex = 22;
-            this.label8.Text = "Nivel";
+            this.label8.Text = "Perfiles";
             // 
             // cbNivel
             // 
+            this.cbNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNivel.FormattingEnabled = true;
-            this.cbNivel.Location = new System.Drawing.Point(277, 116);
+            this.cbNivel.Location = new System.Drawing.Point(250, 116);
             this.cbNivel.Name = "cbNivel";
-            this.cbNivel.Size = new System.Drawing.Size(88, 28);
+            this.cbNivel.Size = new System.Drawing.Size(150, 28);
             this.cbNivel.TabIndex = 21;
             // 
             // btnEliminar
@@ -173,30 +174,31 @@
             this.btnNuevoGuardar.Text = "Nuevo";
             this.btnNuevoGuardar.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvUsuarios
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 310);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Size = new System.Drawing.Size(674, 150);
-            this.dataGridView1.TabIndex = 17;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dgvUsuarios.AllowUserToAddRows = false;
+            this.dgvUsuarios.AllowUserToDeleteRows = false;
+            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuarios.Enabled = false;
+            this.dgvUsuarios.Location = new System.Drawing.Point(12, 310);
+            this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.ReadOnly = true;
+            this.dgvUsuarios.RowHeadersVisible = false;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUsuarios.Size = new System.Drawing.Size(690, 150);
+            this.dgvUsuarios.TabIndex = 17;
+            this.dgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(534, 116);
+            this.pictureBox1.Location = new System.Drawing.Point(550, 116);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(152, 143);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // groupBox1
             // 
@@ -208,7 +210,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox1.Location = new System.Drawing.Point(12, 164);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(502, 95);
+            this.groupBox1.Size = new System.Drawing.Size(532, 95);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Accceso Usuarios";
@@ -216,7 +218,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(261, 34);
+            this.label7.Location = new System.Drawing.Point(304, 34);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(92, 20);
             this.label7.TabIndex = 17;
@@ -224,7 +226,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(265, 57);
+            this.txtPassword.Location = new System.Drawing.Point(308, 57);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(218, 26);
             this.txtPassword.TabIndex = 16;
@@ -247,8 +249,9 @@
             // 
             // cbEstado
             // 
+            this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Location = new System.Drawing.Point(376, 116);
+            this.cbEstado.Location = new System.Drawing.Point(406, 116);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(138, 28);
             this.cbEstado.TabIndex = 14;
@@ -264,18 +267,18 @@
             // 
             // cbDepartamento
             // 
+            this.cbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDepartamento.FormattingEnabled = true;
             this.cbDepartamento.Location = new System.Drawing.Point(12, 116);
             this.cbDepartamento.Name = "cbDepartamento";
-            this.cbDepartamento.Size = new System.Drawing.Size(257, 28);
+            this.cbDepartamento.Size = new System.Drawing.Size(227, 28);
             this.cbDepartamento.TabIndex = 8;
-            this.cbDepartamento.SelectedIndexChanged += new System.EventHandler(this.cbDepartamento_SelectedIndexChanged);
             this.cbDepartamento.SelectionChangeCommitted += new System.EventHandler(this.cbDepartamento_SelectionChangeCommitted);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(372, 93);
+            this.label4.Location = new System.Drawing.Point(402, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 20);
             this.label4.TabIndex = 7;
@@ -334,7 +337,7 @@
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.dataGridView2);
+            this.tabPage2.Controls.Add(this.dgvDeparmento);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -358,20 +361,24 @@
             this.label9.TabIndex = 3;
             this.label9.Text = "Departamentos";
             // 
-            // dataGridView2
+            // dgvDeparmento
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(8, 80);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(422, 150);
-            this.dataGridView2.TabIndex = 0;
+            this.dgvDeparmento.AllowUserToAddRows = false;
+            this.dgvDeparmento.AllowUserToDeleteRows = false;
+            this.dgvDeparmento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDeparmento.Location = new System.Drawing.Point(8, 80);
+            this.dgvDeparmento.Name = "dgvDeparmento";
+            this.dgvDeparmento.ReadOnly = true;
+            this.dgvDeparmento.RowHeadersVisible = false;
+            this.dgvDeparmento.Size = new System.Drawing.Size(422, 150);
+            this.dgvDeparmento.TabIndex = 0;
             // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tabPage3.Controls.Add(this.textBox2);
             this.tabPage3.Controls.Add(this.label10);
-            this.tabPage3.Controls.Add(this.dataGridView3);
+            this.tabPage3.Controls.Add(this.dgvEstados);
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -395,13 +402,17 @@
             this.label10.TabIndex = 6;
             this.label10.Text = "Estados";
             // 
-            // dataGridView3
+            // dgvEstados
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(8, 61);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(694, 162);
-            this.dataGridView3.TabIndex = 5;
+            this.dgvEstados.AllowUserToAddRows = false;
+            this.dgvEstados.AllowUserToDeleteRows = false;
+            this.dgvEstados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEstados.Location = new System.Drawing.Point(8, 61);
+            this.dgvEstados.Name = "dgvEstados";
+            this.dgvEstados.ReadOnly = true;
+            this.dgvEstados.RowHeadersVisible = false;
+            this.dgvEstados.Size = new System.Drawing.Size(694, 162);
+            this.dgvEstados.TabIndex = 5;
             // 
             // toolStrip1
             // 
@@ -465,6 +476,16 @@
             this.sbtnCancelar.Text = "toolStripButton1";
             this.sbtnCancelar.Click += new System.EventHandler(this.sbtnCancelar_Click);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(710, 482);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Perfiles";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // frmMenuSecundario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -484,16 +505,16 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeparmento)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEstados)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -525,21 +546,22 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevoGuardar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbNivel;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvDeparmento;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dgvEstados;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton sbtnNuevo;
         private System.Windows.Forms.ToolStripButton sbtnGuardar;
         private System.Windows.Forms.ToolStripButton sbtnEditar;
         private System.Windows.Forms.ToolStripButton sbtnCancelar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.TabPage tabPage4;
     }
 }

@@ -11,9 +11,12 @@
         <AssociationConnector Association="HelpDeskDBModel.FK_Persona_Departamentos" />
         <AssociationConnector Association="HelpDeskDBModel.FK_Persona_Estados" />
         <EntityTypeShape EntityType="HelpDeskDBModel.sysdiagrams" Width="1.5" PointX="11.25" PointY="1.25" />
-        <EntityTypeShape EntityType="HelpDeskDBModel.Usuarios" Width="1.5" PointX="9.125" PointY="4.5" />
+        <EntityTypeShape EntityType="HelpDeskDBModel.Perfiles" Width="1.5" PointX="8.75" PointY="0.875" />
+        <EntityTypeShape EntityType="HelpDeskDBModel.Usuarios" Width="1.5" PointX="11" PointY="4.5" />
+        <AssociationConnector Association="HelpDeskDBModel.FK_Perfiles_Estados" />
+        <AssociationConnector Association="HelpDeskDBModel.FK_Usuarios_Perfiles" />
         <AssociationConnector Association="HelpDeskDBModel.FK_Usuarios_Persona" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

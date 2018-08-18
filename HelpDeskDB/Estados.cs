@@ -18,6 +18,7 @@ namespace HelpDeskDB
         public Estados()
         {
             this.Persona = new HashSet<Persona>();
+            this.Perfiles = new HashSet<Perfiles>();
         }
     
         public int codigo { get; set; }
@@ -25,5 +26,7 @@ namespace HelpDeskDB
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Persona> Persona { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Perfiles> Perfiles { get; set; }
     }
 }

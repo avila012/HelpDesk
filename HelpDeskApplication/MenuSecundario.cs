@@ -37,110 +37,36 @@ namespace HelpDeskApplication
         public Tabs TabActual { get; set; }
         public Accion SqlAccion { get; set; }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private async void frmMenuSecundario_Load(object sender, EventArgs e)
         {
             try
             {
-               var vLoad = await load();
-                dataGridView1.DataSource = vLoad;
+                HelpDeskDBEntities HDEntities = new HelpDeskDBEntities();
 
-                cbDepartamento.DataSource = await loadDepartamentos();
+                var vLoad = (from tbl in HDEntities.Persona select new { tbl.codigo, tbl.Nombre, tbl.Apellido, usuario = tbl.Usuarios.FirstOrDefault().Usuario, departamento = tbl.Departamentos.Nombre, tbl.Estados.Estado });
+                dgvUsuarios.DataSource = vLoad.ToList();
+
+                var loadDepartament = (from tbl in HDEntities.Departamentos select new { tbl.codigo, tbl.Nombre }).ToList();
+                dgvDeparmento.DataSource = loadDepartament;
+
+                var loadEstados = (from tbl in HDEntities.Estados select new { tbl.codigo, tbl.Estado }).ToList();
+                dgvEstados.DataSource = loadEstados;
+
+                cbNivel.DataSource = (from tbl in HDEntities.Perfiles select new { tbl.Codigo, tbl.Descripcion }).ToList(); ;
+                cbNivel.ValueMember = "codigo";
+                cbNivel.DisplayMember = "Descripcion";
+
+                cbDepartamento.DataSource = HDEntities.Departamentos.ToList();
                 cbDepartamento.ValueMember = "codigo";
                 cbDepartamento.DisplayMember = "nombre";
 
-                //HelpDeskDBEntities HDEntities = new HelpDeskDBEntities();
-
-                //if (HDEntities.Persona.Any())
-                //{
-                //    txtCodigo.Text = HDEntities.Persona.FirstOrDefault().codigo.ToString();
-                //    txtNombre.Text = HDEntities.Persona.FirstOrDefault().Nombre.ToString();
-                //    txtCodigo.Text = HDEntities.Persona.FirstOrDefault().codigo.ToString();
-                //    txtCodigo.Text = HDEntities.Persona.FirstOrDefault().codigo.ToString();
-
-                //}
-
-                dataGridView1.DataSource = await load();
-
+                cbEstado.DataSource = (from tbl in HDEntities.Estados select new { tbl.codigo, tbl.Estado }).ToList();
+                cbEstado.ValueMember = "codigo";
+                cbEstado.DisplayMember = "Estado";
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private async Task<DataTable> load()
-        {
-            try
-            {
-                DataTable nombre = new DataTable();
-
-                using (var conex = new SqlConnection(ConfigurationManager.ConnectionStrings["cnnString"].ToString()))
-                {
-                    await conex.OpenAsync();
-
-                    using (var cmd = conex.CreateCommand())
-                    {
-                        cmd.CommandText = "select * from persona;";
-                        cmd.CommandType = CommandType.Text;
-
-                        var reader = await cmd.ExecuteReaderAsync();
-
-                        if (reader.HasRows)
-                        {
-                            nombre.Load(reader);
-                        }
-
-                        return nombre;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        private async Task<DataTable> loadDepartamentos()
-        {
-            try
-            {
-                DataTable nombre = new DataTable();
-
-                using (var conex = new SqlConnection(ConfigurationManager.ConnectionStrings["cnnString"].ToString()))
-                {
-                    await conex.OpenAsync();
-
-                    using (var cmd = conex.CreateCommand())
-                    {
-                        cmd.CommandText = "select codigo, nombre from Departamentos;";
-                        cmd.CommandType = CommandType.Text;
-
-                        var reader = await cmd.ExecuteReaderAsync();
-
-                        if (reader.HasRows)
-                        {
-                            nombre.Load(reader);
-                        }
-
-                        return nombre;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
             }
         }
 
@@ -148,15 +74,11 @@ namespace HelpDeskApplication
         {
             if (e.RowIndex >= 0)
             {
-                txtCodigo.Text = dataGridView1.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
-                txtNombre.Text = dataGridView1.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-                txtApellido.Text = dataGridView1.Rows[e.RowIndex].Cells["apellido"].Value.ToString();
+                txtCodigo.Text = dgvUsuarios.Rows[e.RowIndex].Cells["Codigo"].Value.ToString();
+                txtNombre.Text = dgvUsuarios.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
+                txtApellido.Text = dgvUsuarios.Rows[e.RowIndex].Cells["apellido"].Value.ToString();
+                txtUsuario.Text = dgvUsuarios.Rows[e.RowIndex].Cells["Usuario"].Value.ToString();
             }
-        }
-
-        private void cbDepartamento_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void cbDepartamento_SelectionChangeCommitted(object sender, EventArgs e)
@@ -176,13 +98,10 @@ namespace HelpDeskApplication
             SqlAccion = Accion.Insertar;
         }
 
-        private void tabControl1_TabIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
         private async void sbtnGuardar_Click(object sender, EventArgs e)
         {
+            HelpDeskDBEntities HDEntities = new HelpDeskDBEntities();
+
             switch (TabActual)
             {
                 case Tabs.Usuario:
@@ -206,20 +125,41 @@ namespace HelpDeskApplication
                                 Estado = Convert.ToInt32(cbEstado.SelectedValue),
                             };
 
-                            HelpDeskDBEntities hd = new HelpDeskDBEntities();
-                            hd.Usuarios.Add(user);
-                            hd.Persona.Add(per);
+                            HDEntities.Usuarios.Add(user);
+                            HDEntities.Persona.Add(per);
 
-                            await hd.SaveChangesAsync();
+                            await HDEntities.SaveChangesAsync();
 
                             break;
 
                         case Accion.Eliminar:
+
+                            int cod = Convert.ToInt16(txtCodigo.Text);
+                            var person = HDEntities.Persona.SingleOrDefault(x => x.codigo == cod);
+
+                            HDEntities.Persona.Remove(person);
+
+                            await HDEntities.SaveChangesAsync();
+
                             break;
 
                         case Accion.Actualizar:
+
+                            int codigo = Convert.ToInt16(txtCodigo.Text);
+                            var persona = HDEntities.Persona.SingleOrDefault(x => x.codigo == codigo);
+                            persona.Nombre = txtNombre.Text;
+                            persona.Apellido = txtApellido.Text;
+                            persona.Departamento = Convert.ToInt32(cbDepartamento.SelectedValue);
+                            persona.Estado = Convert.ToInt32(cbEstado.SelectedValue);
+
+                            await HDEntities.SaveChangesAsync();
+
                             break;
                     }
+
+                    var vLoad = (from tbl in HDEntities.Persona select new { tbl.codigo, tbl.Nombre, tbl.Apellido, departamento = tbl.Departamentos.Nombre, tbl.Estados.Estado });
+                    dgvUsuarios.DataSource = vLoad.ToList();
+
                     break;
 
                 case Tabs.Departamento:
@@ -235,7 +175,7 @@ namespace HelpDeskApplication
             sbtnNuevo.Enabled = true;
             sbtnGuardar.Enabled = false;
             sbtnCancelar.Enabled = false;
-
+            dgvUsuarios.Enabled = false;
         }
 
         private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
@@ -260,6 +200,7 @@ namespace HelpDeskApplication
             sbtnNuevo.Enabled = true;
             sbtnGuardar.Enabled = false;
             sbtnCancelar.Enabled = false;
+            dgvUsuarios.Enabled = false;
         }
 
         private void sbtnEditar_Click(object sender, EventArgs e)
@@ -268,7 +209,10 @@ namespace HelpDeskApplication
             sbtnNuevo.Enabled = false;
             sbtnGuardar.Enabled = true;
             sbtnCancelar.Enabled = true;
+
             SqlAccion = Accion.Actualizar;
+
+            dgvUsuarios.Enabled = true;
         }
     }
 }

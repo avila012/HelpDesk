@@ -39,11 +39,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="prValidaUsuario" FunctionName="HelpDeskDBModel.Store.prValidaUsuario" />
+    <EntitySetMapping Name="Perfiles">
+      <EntityTypeMapping TypeName="HelpDeskDBModel.Perfiles">
+        <MappingFragment StoreEntitySet="Perfiles">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Usuarios">
       <EntityTypeMapping TypeName="HelpDeskDBModel.Usuarios">
         <MappingFragment StoreEntitySet="Usuarios">
           <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="IdPerfil" ColumnName="IdPerfil" />
           <ScalarProperty Name="Pass" ColumnName="Pass" />
           <ScalarProperty Name="Usuario" ColumnName="Usuario" />
           <ScalarProperty Name="CodPersona" ColumnName="CodPersona" />

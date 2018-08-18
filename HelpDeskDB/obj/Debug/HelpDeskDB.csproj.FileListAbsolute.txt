@@ -20,3 +20,16 @@ C:\C#\ClnHelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.Properties.Resources.resources
 C:\C#\ClnHelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.csproj.GenerateResource.Cache
 C:\C#\ClnHelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.dll
 C:\C#\ClnHelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.pdb
+C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\bin\Debug\HelpDeskDB.dll.config
+C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\bin\Debug\HelpDeskDB.dll
+C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\bin\Debug\HelpDeskDB.pdb
+C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\bin\Debug\EntityFramework.dll
+C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\bin\Debug\EntityFramework.xml
+C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.csprojResolveAssemblyReference.cache
+C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.Properties.Resources.resources
+C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.csproj.GenerateResource.Cache
+C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.csproj.CoreCompileInputs.cache
+C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.dll
+C:\Users\Home\Source\Repos\HelpDesk\HelpDeskDB\obj\Debug\HelpDeskDB.pdb
